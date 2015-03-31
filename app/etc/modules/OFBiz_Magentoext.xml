@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OFBiz_Magentoext>
+            <active>true</active>
+            <codePool>community</codePool>
+        </OFBiz_Magentoext>
+    </modules>
+</config> 

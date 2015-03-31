@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     name="{{var wsdl.name}}"
+     targetNamespace="urn:{{var wsdl.name}}">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+            <xsd:complexType name="storeAddressEntity">
+                <xsd:sequence>
+                    <xsd:element name="store_name" type="xsd:string" />
+                    <xsd:element name="contact_number" type="xsd:string" />
+                    <xsd:element name="country" type="xsd:string" />
+                    <xsd:element name="address" type="xsd:string" />
+                    <xsd:element name="email_address" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeShippingMethodsEntity">
+                <xsd:sequence>
+                    <xsd:element name="allowedMethods" type="xsd:string" />
+                    <xsd:element name="active" type="xsd:string" />
+                    <xsd:element name="username" type="xsd:string" />
+                    <xsd:element name="password" type="xsd:string" />
+                    <xsd:element name="gatewayUrl" type="xsd:string" />
+                    <xsd:element name="gatewayXmlUrl" type="xsd:string" />
+                    <xsd:element name="trackingXmlUrl" type="xsd:string" />
+                    <xsd:element name="shipConfirmXmlUrl" type="xsd:string" />
+                    <xsd:element name="shipAcceptXmlUrl" type="xsd:string" />
+                    <xsd:element name="accessLicenseNumber" type="xsd:string" />
+                    <xsd:element name="gatewaySecureUrl" type="xsd:string" />
+                    <xsd:element name="userId" type="xsd:string" />
+                    <xsd:element name="account" type="xsd:string" />
+                    <xsd:element name="meterNumber" type="xsd:string" />
+                    <xsd:element name="key" type="xsd:string" />
+                    <xsd:element name="id" type="xsd:string" />
+                    <xsd:element name="carrierCode" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeShippingMethodsEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:storeShippingMethodsEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeShippingOriginEntity">
+                <xsd:sequence>
+                    <xsd:element name="country_id" type="xsd:string" />
+                    <xsd:element name="region_code" type="xsd:string" />
+                    <xsd:element name="postcode" type="xsd:string" />
+                    <xsd:element name="city" type="xsd:string" />
+                    <xsd:element name="street_line1" type="xsd:string" />
+                    <xsd:element name="street_line2" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeCurrencyEntity">
+                <xsd:sequence>
+                    <xsd:element name="base" type="xsd:string" />
+                    <xsd:element name="default" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeConfigEntity">
+                <xsd:sequence>
+                    <xsd:element name="address" type="typens:storeAddressEntity" />
+                    <xsd:element name="shipping_methods" type="typens:storeShippingMethodsEntityArray" />
+                    <xsd:element name="shipping_origin" type="typens:storeShippingOriginEntity" />
+                    <xsd:element name="currency" type="typens:storeCurrencyEntity" />
+                    <xsd:element name="website_id" type="xsd:string" />
+                    <xsd:element name="default_store_id" type="xsd:string" />
+                    <xsd:element name="group_id" type="xsd:string" />
+                    <xsd:element name="is_active" type="xsd:string" />
+                    <xsd:element name="store_group_name" type="xsd:string" />
+                    <xsd:element name="root_category_id" type="xsd:string" />
+                    <xsd:element name="code" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeConfigEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:storeConfigEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="salesOrderAddressUpdateEntity">
+                <xsd:sequence>
+                    <xsd:element name="address_type" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="firstname" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="lastname" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="address1" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="address2" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="city" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="region" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="postcode" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="country_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="telephone" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="fax" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="region_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="address_id" type="xsd:string" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="catalogProductRelationEntity">
+                <xsd:sequence>
+                    <xsd:element name="product_id" type="xsd:string"/>
+                    <xsd:element name="parent_id" type="xsd:string"/>
+                    <xsd:element name="parent_type" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="catalogProductRelationEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:catalogProductRelationEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="storeConfigRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="storeConfigResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:storeConfigEntityArray" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="editSalesOrderAddressRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="orderIncrementId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="orderData" type="typens:salesOrderAddressUpdateEntity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="editSalesOrderAddressResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="catalogProductRelationRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="productId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="catalogProductRelationResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:catalogProductRelationEntityArray"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="storeConfigRequest">
+        <wsdl:part name="parameters" element="typens:storeConfigRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="storeConfigResponse">
+        <wsdl:part name="parameters" element="typens:storeConfigResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="editSalesOrderAddressRequest">
+        <wsdl:part name="parameters" element="typens:editSalesOrderAddressRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="editSalesOrderAddressResponse">
+        <wsdl:part name="parameters" element="typens:editSalesOrderAddressResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="catalogProductRelationRequest">
+        <wsdl:part name="parameters" element="typens:catalogProductRelationRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="catalogProductRelationResponse">
+        <wsdl:part name="parameters" element="typens:catalogProductRelationResponseParam" />
+    </wsdl:message>
+
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="magentoStoreConfig">
+            <wsdl:documentation>Retrieve store configuration</wsdl:documentation>
+            <wsdl:input message="typens:storeConfigRequest" />
+            <wsdl:output message="typens:storeConfigResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="magentoOrderEditSalesOrderAddress">
+            <wsdl:documentation>Edit Sales Order Address</wsdl:documentation>
+            <wsdl:input message="typens:editSalesOrderAddressRequest" />
+            <wsdl:output message="typens:editSalesOrderAddressResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="magentoCatalogGetProductRelation">
+            <wsdl:documentation>Get Product Relation</wsdl:documentation>
+            <wsdl:input message="typens:catalogProductRelationRequest" />
+            <wsdl:output message="typens:catalogProductRelationResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="magentoStoreConfig">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="magentoOrderEditSalesOrderAddress">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="magentoCatalogGetProductRelation">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="{{var wsdl.name}}Service">
+        <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <OFBiz_Magentoext>
+          <version>1.0.0</version>
+        </OFBiz_Magentoext>
+    </modules>
+  <api>
+      <resources>
+        <magentoext_magento_store translate="title" module="ofbiz_magentoext">
+            <title>custom API</title>
+            <model>magentoext/magento_store_api</model>
+            <acl>magentoext/magento_custom</acl>
+            <methods>
+                <config translate="title" module="ofbiz_magentoext">
+                    <title>Get store configuration</title>
+                    <acl>magentoext/magento/store/config</acl>
+                </config>
+            </methods>
+            <faults module="ofbiz_magentoext">
+                <project_not_exists>
+                    <code>101</code>
+                    <message>Requested project does not exist.</message>
+                </project_not_exists>
+                <invalid_data>
+                    <code>102</code>
+                    <message>Provided data is invalid.</message>
+                </invalid_data>
+                <save_error>
+                    <code>103</code>
+                    <message>Error while saving project. Details in error message.</message>
+                </save_error>
+                <remove_error>
+                    <code>104</code>
+                    <message>Error while removing project. Details in error message.</message>
+                </remove_error>
+            </faults>
+        </magentoext_magento_store>
+        <magentoext_magento_order translate="title" module="ofbiz_magentoext">
+            <title>Edit Sales Order API</title>
+            <model>magentoext/magento_order_api</model>
+            <methods>
+                <editSalesOrderAddress translate="title" module="ofbiz_magentoext">
+                    <title>Edit Sales Order Address</title>
+                    <acl>magentoext/magento/order/editSalesOrderAddress</acl>
+                </editSalesOrderAddress>
+            </methods>
+            <faults module="ofbiz_magentoext">
+                <project_not_exists>
+                    <code>101</code>
+                    <message>Requested project does not exist.</message>
+                </project_not_exists>
+                <invalid_data>
+                    <code>102</code>
+                    <message>Provided data is invalid.</message>
+                </invalid_data>
+                <save_error>
+                    <code>103</code>
+                    <message>Error while saving project. Details in error message.</message>
+                </save_error>
+                <remove_error>
+                    <code>104</code>
+                    <message>Error while removing project. Details in error message.</message>
+                </remove_error>
+            </faults>
+        </magentoext_magento_order>
+        <magentoext_magento_catalog translate="title" module="ofbiz_magentoext">
+            <title>Catalog API</title>
+            <model>magentoext/magento_catalog_api</model>
+            <methods>
+                <getProductRelation translate="title" module="ofbiz_magentoext">
+                    <title>Get Product Relation</title>
+                    <acl>magentoext/magento/catalog/getProductRelation</acl>
+                </getProductRelation>
+            </methods>
+            <faults module="ofbiz_magentoext">
+                <project_not_exists>
+                    <code>101</code>
+                    <message>Requested project does not exist.</message>
+                </project_not_exists>
+                <invalid_data>
+                    <code>102</code>
+                    <message>Provided data is invalid.</message>
+                </invalid_data>
+                <save_error>
+                    <code>103</code>
+                    <message>Error while saving project. Details in error message.</message>
+                </save_error>
+                <remove_error>
+                    <code>104</code>
+                    <message>Error while removing project. Details in error message.</message>
+                </remove_error>
+            </faults>
+        </magentoext_magento_catalog>
+    </resources>
+<!--     <resources_alias>
+        <magento_store>magentoext_magento_store</magento_store>
+    </resources_alias> -->
+    <v2>
+        <resources_function_prefix>
+            <magentoext_magento_store>magentoStore</magentoext_magento_store>
+            <magentoext_magento_order>magentoOrder</magentoext_magento_order>
+            <magentoext_magento_catalog>magentoCatalog</magentoext_magento_catalog>
+        </resources_function_prefix>
+    </v2>
+  </api>
+</config>

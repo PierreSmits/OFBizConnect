@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="storeAddressEntity">
+                <all>
+                    <element name="store_name" type="xsd:string"/>
+                    <element name="contact_number" type="xsd:string"/>
+                    <element name="country" type="xsd:string"/>
+                    <element name="address" type="xsd:string"/>
+                    <element name="email_address" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="storeShippingMethodsEntity">
+                <all>
+                    <element name="allowedMethods" type="xsd:string"/>
+                    <element name="active" type="xsd:string"/>
+                    <element name="username" type="xsd:string"/>
+                    <element name="password" type="xsd:string"/>
+                    <element name="gatewayUrl" type="xsd:string"/>
+                    <element name="gatewayXmlUrl" type="xsd:string" />
+                    <element name="trackingXmlUrl" type="xsd:string" />
+                    <element name="shipConfirmXmlUrl" type="xsd:string" />
+                    <element name="shipAcceptXmlUrl" type="xsd:string" />
+                    <element name="accessLicenseNumber" type="xsd:string" />
+                    <element name="gatewaySecureUrl" type="xsd:string" />
+                    <element name="userId" type="xsd:string" />
+                    <element name="account" type="xsd:string" />
+                    <element name="meterNumber" type="xsd:string" />
+                    <element name="key" type="xsd:string" />
+                    <element name="id" type="xsd:string" />
+                    <element name="carrierCode" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="storeShippingMethodsEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:storeShippingMethodsEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="storeShippingOriginEntity">
+                <all>
+                    <element name="country_id" type="xsd:string"/>
+                    <element name="region_code" type="xsd:string"/>
+                    <element name="postcode" type="xsd:string"/>
+                    <element name="city" type="xsd:string"/>
+                    <element name="street_line1" type="xsd:string"/>
+                    <element name="street_line2" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="storeCurrencyEntity">
+                <all>
+                    <element name="base" type="xsd:string"/>
+                    <element name="default" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="storeConfigEntity">
+                <all>
+                    <element name="address" type="typens:storeAddressEntity"/>
+                    <element name="shipping_methods" type="typens:storeShippingMethodsEntityArray"/>
+                    <element name="shipping_origin" type="typens:storeShippingOriginEntity"/>
+                    <element name="currency" type="typens:storeCurrencyEntity"/>
+                    <element name="website_id" type="xsd:string"/>
+                    <element name="default_store_id" type="xsd:string"/>
+                    <element name="group_id" type="xsd:string"/>
+                    <element name="is_active" type="xsd:string"/>
+                    <element name="store_group_name" type="xsd:string"/>
+                    <element name="root_category_id" type="xsd:string"/>
+                    <element name="code" type="xsd:string"/>
+                    <element name="name" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="storeConfigEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:storeConfigEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="salesOrderAddressUpdateEntity">
+                <all>
+                    <element name="address_type" type="xsd:string" minOccurs="0" />
+                    <element name="firstname" type="xsd:string" minOccurs="0" />
+                    <element name="lastname" type="xsd:string" minOccurs="0" />
+                    <element name="address1" type="xsd:string" minOccurs="0" />
+                    <element name="address2" type="xsd:string" minOccurs="0" />
+                    <element name="city" type="xsd:string" minOccurs="0" />
+                    <element name="region" type="xsd:string" minOccurs="0" />
+                    <element name="postcode" type="xsd:string" minOccurs="0" />
+                    <element name="country_id" type="xsd:string" minOccurs="0" />
+                    <element name="telephone" type="xsd:string" minOccurs="0" />
+                    <element name="fax" type="xsd:string" minOccurs="0" />
+                    <element name="region_id" type="xsd:string" minOccurs="0" />
+                    <element name="address_id" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="catalogProductRelationEntity">
+                <all>
+                    <element name="product_id" type="xsd:int"/>
+                    <element name="parent_id" type="xsd:int"/>
+                    <element name="parent_type" type="xsd:int"/>
+                </all>
+            </complexType>
+            <complexType name="catalogProductRelationEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:catalogProductRelationEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types>
+    <message name="storeConfigRequest">
+        <part name="sessionId" type="xsd:string" />
+    </message>
+    <message name="storeConfigResponse">
+        <part name="result" type="typens:storeConfigEntityArray" />
+    </message>
+    <message name="editSalesOrderAddressRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="orderIncrementId" type="xsd:int" />
+        <part name="orderData" type="typens:salesOrderAddressUpdateEntity" />
+    </message>
+    <message name="editSalesOrderAddressResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="getProductRelationRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="productId" type="xsd:string" />
+    </message>
+    <message name="getProductRelationResponse">
+        <part name="result" type="typens:catalogProductRelationEntityArray" />
+    </message>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="magentoStoreConfig">
+            <documentation>Retrieve store configuration</documentation>
+            <input message="typens:storeConfigRequest" />
+            <output message="typens:storeConfigResponse" />
+        </operation>
+    </portType>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="magentoOrderEditSalesOrderAddress">
+            <documentation>Edit Sales Order Address</documentation>
+            <input message="typens:editSalesOrderAddressRequest" />
+            <output message="typens:editSalesOrderAddressResponse" />
+        </operation>
+    </portType>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="magentoCatalogGetProductRelation">
+            <documentation>Get Product Relation</documentation>
+            <input message="typens:getProductRelationRequest" />
+            <output message="typens:getProductRelationResponse" />
+        </operation>
+    </portType>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="magentoStoreConfig">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="magentoOrderEditSalesOrderAddress">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="magentoCatalogGetProductRelation">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="{{var wsdl.name}}Service">
+        <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </port>
+    </service>
+</definitions>

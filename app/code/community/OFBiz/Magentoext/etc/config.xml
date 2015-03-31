@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <OFBiz_Magentoext>
+            <version>1.0.0</version>
+        </OFBiz_Magentoext>
+    </modules>
+
+    <global>
+        <helpers>
+            <mycompany_magentoext>
+                <class>OFBiz_Magentoext_Helper</class>
+            </mycompany_magentoext>
+        </helpers>
+
+        <models>
+            <magentoext>
+                <class>OFBiz_Magentoext_Model</class>
+                <resourceModel>magentoext_resource</resourceModel>
+            </magentoext>
+            <magentoext_resource>
+                <class>OFBiz_Magentoext_Model_Resource</class>
+            </magentoext_resource>
+        </models>
+
+        <resources>
+            <magentoext_setup>
+                <setup>
+                    <module>OFBiz_Magentoext</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </magentoext_setup>
+            <magentoext_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </magentoext_write>
+            <magentoext_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </magentoext_read>
+        </resources>
+    </global>   
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <magentoext before="Mage_Adminhtml">OFBiz_Magentoext_Adminhtml</magentoext>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <frontend>
+        <routers>
+            <magentoext>
+                <use>standard</use>
+                <args>
+                    <module>OFBiz_Magentoext</module>
+                    <frontName>magentoext</frontName>
+                </args>
+            </magentoext>
+        </routers>
+    </frontend>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <magentoext>
+                    <file>magentoext.xml</file>
+                </magentoext>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>
